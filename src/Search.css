@@ -1,0 +1,16 @@
+.search-input {
+    height: 5rem;
+    font-size: 1.4rem;
+    width: 25%;
+    padding: 0 3rem;
+    background-color: var(--dblue);
+    color: var(--white);
+    font-family: inherit;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+}
+
+.search-input::placeholder {
+    color: hsl(0, 0%, 90%);
+}

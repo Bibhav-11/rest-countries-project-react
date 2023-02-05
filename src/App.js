@@ -1,24 +1,48 @@
-import logo from './logo.svg';
+import { useState, useEffect } from 'react';
 import './App.css';
+import axios from 'axios';
+import Navigation from './Navigation';
+import Countries from './Countries';
+import Country from './Country';
+import Route from './Route';
 
 function App() {
+  const [country, setCountry] = useState('');
+  const [countries, setCountries] = useState([]);
+  const [countryData, setCountryData] = useState([]);
+
+  useEffect(() => {
+    axios.get('https://restcountries.com/v3.1/all')
+    .then(response => {
+      setCountries(response.data);
+    })
+    
+  }, []);
+
+  useEffect(() => {
+    if(country) {
+        axios.get(`https://restcountries.com/v3.1/alpha/${country}`)
+        .then(response => {
+          setCountryData([response.data[0]]);
+        })
+
+      }
+    }, [country])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navigation />
+
+      <Route pathname='/'>
+        <Countries countries={countries} setCountry={setCountry} />
+      </Route>
+
+      <Route pathname='/country'>
+        <Country country={countryData} countries={countries} setCountry={setCountry} />
+      </Route>
+
+    </>
+    
   );
 }
 

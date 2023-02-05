@@ -1,0 +1,15 @@
+.nav {
+    background-color: var(--dblue);
+    color: var(--white);
+}
+
+.nav-container {
+    height: 7rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-heading {
+    font-size: 2rem;
+}
