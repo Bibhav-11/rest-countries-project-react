@@ -1,24 +1,37 @@
 .country-info-container {
-    background-color: hsl(207, 26%, 17%);
+    background-color: var(--background);
     min-height: calc(100vh - 7rem);
-    color: var(--white);
+    color: var(--text);
     font-weight: 600;
+    padding-top: 6rem;
 }
 
 .button {
-    background-color: hsl(209, 23%, 22%);
-    padding: 1rem 3rem;
+    background-color: var(--elements);
+    padding: 0.8rem 3.2rem;
     outline: none;
     border: none;
     border-radius: 5px;
     color: inherit;
-    box-shadow: 0 0.5px 8px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1);
     text-decoration: none;
     cursor: pointer;
 }
 
 .back.button {
-    margin: 6rem 0;
+    padding: 0.8rem 3.2rem 0.8rem 2rem;
+    margin-bottom: 6rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: max-content;
+}
+
+.back.button svg {
+    fill: var(--text);
+    transform: rotate(45deg);
+    width:30px;
+    height: 25px;
 }
 
 .details {
@@ -28,7 +41,6 @@
 }
 
 .logo {
-    /* flex: 1; */
     width: 55rem;
     height: 40rem;
 }
@@ -56,6 +68,10 @@
 .light {
     font-weight: 300;
     color: hsl(0, 0%, 90%);
+}
+
+.app-container.light .light {
+    color: hsl(0, 0%, 10%);
 }
 
 .border span {

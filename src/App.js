@@ -10,6 +10,7 @@ function App() {
   const [country, setCountry] = useState('');
   const [countries, setCountries] = useState([]);
   const [countryData, setCountryData] = useState([]);
+  const [dark, setDark] = useState(true);
 
   useEffect(() => {
     axios.get('https://restcountries.com/v3.1/all')
@@ -30,18 +31,18 @@ function App() {
     }, [country])
 
   return (
-    <>
-      <Navigation />
+    <div className={`app-container ${dark ? "" : "light"}`}>
+      <Navigation theme={dark} setTheme={setDark} />
 
       <Route pathname='/'>
-        <Countries countries={countries} setCountry={setCountry} />
+        <Countries theme={dark} countries={countries} setCountry={setCountry} />
       </Route>
 
       <Route pathname='/country'>
         <Country country={countryData} countries={countries} setCountry={setCountry} />
       </Route>
 
-    </>
+    </div>
     
   );
 }

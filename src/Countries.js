@@ -29,7 +29,7 @@ const options = [
 ]
   
 
-export default function Countries({ countries, setCountry }) {
+export default function Countries({ countries, setCountry, theme }) {
     const [selected, setSelected] = useState({
       label: 'Filter by Region',
       value: null
@@ -66,7 +66,7 @@ export default function Countries({ countries, setCountry }) {
         <div className="countries">
             <div className="container">
                 <div className="search-section">
-                    <Search query={searched} setQuery={setSearched} style={{width: '50%'}} className='countries__search' />
+                    <Search theme={theme} query={searched} setQuery={setSearched} style={{width: '50%'}} className='countries__search' />
                     <Dropdown className='countries__dropdown' open={open} setOpen={setOpen} selected={selected} setSelected={setSelected} options={options} />
                 </div>
 

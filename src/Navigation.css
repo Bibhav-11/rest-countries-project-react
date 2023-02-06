@@ -1,6 +1,7 @@
 .nav {
-    background-color: var(--dblue);
-    color: var(--white);
+    background-color: var(--elements);
+    color: var(--text);
+    border-bottom: 3px solid rgba(0, 0, 0, 0.05);
 }
 
 .nav-container {
@@ -13,3 +14,33 @@
 .nav-heading {
     font-size: 2rem;
 }
+
+
+
+.color-switcher {
+    background: none;
+    border: none;
+    outline: none;
+    color: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    flex-basis: 20rem;
+}
+
+.nav .color-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.color-switcher svg {
+    fill: hsl(0, 0%, 98%);
+    transform: scale(0.6) rotate(-45deg) translateY(-5px);
+    flex: 0.25;
+}
+
+.color-switcher.light svg {
+    fill: black;
+}
+

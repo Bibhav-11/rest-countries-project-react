@@ -1,5 +1,5 @@
 .countries {
-    background: var(--vdblue);
+    background: var(--background);
     min-height: calc(100vh - 7rem);
     padding: 5rem 0;
 }
@@ -11,7 +11,7 @@
 
 .country-container {
     padding: 6rem 0;
-    color: var(--white);
+    color: var(--text);
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
     grid-gap: 7rem 7.5rem;
@@ -19,7 +19,7 @@
 
 .country {
 
-    background-color: hsl(209, 23%, 22%);
+    background-color: var(--elements);
     border-radius: 5px;
     
     display: flex;
@@ -27,6 +27,7 @@
     overflow: hidden; 
     font-size: 0.8em;
     cursor: pointer;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.1)
 }
 
 .country > a {
