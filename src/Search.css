@@ -1,7 +1,7 @@
 .search-input {
     height: 5rem;
     font-size: 1.4rem;
-    width: 25%;
+    width: 50%;
     padding: 0 3rem 0 6rem;
     background-color: var(--elements);
     color: var(--text);

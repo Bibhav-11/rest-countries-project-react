@@ -13,8 +13,9 @@
     padding: 6rem 0;
     color: var(--text);
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+    grid-template-columns: repeat(auto-fill, 26rem);
     grid-gap: 7rem 7.5rem;
+    justify-content: center;  
 }
 
 .country {
@@ -64,3 +65,13 @@
     display: none;
 }
 
+@media (max-width: 700px) {
+    .search-section {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .search-section .search-input {
+        width: 100%;
+    }
+}

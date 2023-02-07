@@ -15,8 +15,6 @@
     font-size: 2rem;
 }
 
-
-
 .color-switcher {
     background: none;
     border: none;
@@ -28,10 +26,27 @@
     flex-basis: 20rem;
 }
 
+@media (max-width: 600px) {
+    .nav-heading {
+        font-size: 1.8rem;
+    }
+    
+    .color-switcher {
+        flex-basis: 15rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .color-switcher {
+        flex-basis: 12rem;
+        font-size: 0.8em;
+    }
+}
+
 .nav .color-switcher {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
 }
 
 .color-switcher svg {

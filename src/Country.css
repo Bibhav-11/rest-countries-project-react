@@ -20,7 +20,6 @@
 
 .back.button {
     padding: 0.8rem 3.2rem 0.8rem 2rem;
-    margin-bottom: 6rem;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -36,18 +35,30 @@
 
 .details {
     display: flex;
+    gap: 13rem;
     align-items: center;
-    gap: 0 13rem;
+    padding: 6rem 0;
+}
+
+@media (max-width: 1250px) {
+    .details {
+        gap: 5rem;
+    }
+}
+
+.logo-container {
+    flex: 1 1 100%;
 }
 
 .logo {
-    width: 55rem;
-    height: 40rem;
+    width: 100%;
 }
 
 .information {
-    flex: 1;
+    flex: 1 1 100%;
+    width: 100%;
 }
+
 
 .name {
     font-size: 3rem;
@@ -57,9 +68,27 @@
     margin: 3rem 0 6.5rem; 
     display: flex;
     justify-content: space-between;
-    flex: 1;
     letter-spacing: 0.3px;
 } 
+
+@media (max-width: 1000px) {
+    .details {
+        flex-direction: column;
+        gap: 7rem;
+    }
+
+    .description {
+        justify-content: flex-start;
+        gap: 6rem;
+    }
+}
+
+@media (max-width: 650px) {
+    .description {
+        flex-direction: column;
+        gap: 4rem;
+    }
+}
 
 .description > div > p:not(:last-child) {
     margin-bottom: 0.5rem;

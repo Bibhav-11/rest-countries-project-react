@@ -45,3 +45,19 @@ body {
     max-width: 127rem;
     margin: 0 auto;
 }
+
+.border {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1300px) {
+    html {
+        font-size: 60%;
+    }
+
+    
+    .container {
+        padding: 0 3rem;
+    }
+}

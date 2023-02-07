@@ -20,7 +20,7 @@ export default function Country({ country, countries, setCountry }) {
         }));
         return (
                 <div className="details" key={c.name.common}>       
-                    <img src={c.flags.svg} alt="" className="logo" />
+                    <div className="logo-container"><img src={c.flags.svg} alt="" className="logo" /></div>
                     <div className="information">
                         <h3 className="name">{c.name.common}</h3>
                         <div className="description">
