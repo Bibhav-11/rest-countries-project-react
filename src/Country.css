@@ -103,6 +103,12 @@
     color: hsl(0, 0%, 10%);
 }
 
+.border {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
 .border span {
     margin-right: 1rem;
 }
