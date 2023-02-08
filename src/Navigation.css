@@ -45,17 +45,34 @@
 
 .nav .color-switcher {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: flex-end;
+    gap: 0.2rem;
 }
 
 .color-switcher svg {
-    fill: hsl(0, 0%, 98%);
-    transform: scale(0.6) rotate(-45deg) translateY(-5px);
-    flex: 0.25;
+    transform: scale(0.6) rotate(-35deg) translateY(-5px);
+    width: 28px;
+    height: 28px;
+    position: relative;
+    top: 4.5px;
 }
 
-.color-switcher.light svg {
-    fill: black;
+.icon-regular {
+    display: none;
 }
+
+.icon-solid {
+    fill: white;
+    font-weight: 800;
+}
+
+.light .icon-solid {
+    display: none;
+}
+
+.light .icon-regular {
+    display: block;
+}
+
 

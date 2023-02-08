@@ -4,12 +4,10 @@ import axios from 'axios';
 import Navigation from './Navigation';
 import Countries from './Countries';
 import Country from './Country';
-import Route from './Route';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
-  const [country, setCountry] = useState('');
   const [countries, setCountries] = useState([]);
-  const [countryData, setCountryData] = useState([]);
   const [dark, setDark] = useState(true);
 
   useEffect(() => {
@@ -20,27 +18,15 @@ function App() {
     
   }, []);
 
-  useEffect(() => {
-    if(country) {
-        axios.get(`https://restcountries.com/v3.1/alpha/${country}`)
-        .then(response => {
-          setCountryData([response.data[0]]);
-        })
-
-      }
-    }, [country])
-
   return (
     <div className={`app-container ${dark ? "" : "light"}`}>
       <Navigation theme={dark} setTheme={setDark} />
 
-      <Route pathname='/'>
-        <Countries theme={dark} countries={countries} setCountry={setCountry} />
-      </Route>
+      <Routes>
+        <Route path='/' element={<Countries theme={dark} countries={countries} />} />
+        <Route path='/country/:countryName' element={<Country countries={countries}/>} />
+      </Routes>
 
-      <Route pathname='/country'>
-        <Country country={countryData} countries={countries} setCountry={setCountry} />
-      </Route>
 
     </div>
     

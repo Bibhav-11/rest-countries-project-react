@@ -57,6 +57,14 @@
     margin: 2rem 0 5rem;
 }
 
+.country__information p {
+    font-weight: 600;
+}
+
+.country__information span {
+    font-weight: 400;
+}
+
 .country__information > p:not(:last-child) {
     margin-bottom: 0.5rem;
 }

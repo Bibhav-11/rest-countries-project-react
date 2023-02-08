@@ -38,6 +38,7 @@ export default function Dropdown( { options, selected, setSelected, open, setOpe
     }
 
     const renderedList = options.map(option => {
+        if(selected.value === "null" && option.value === "null") return null;
         return <li onClick={(e) => onOptionSelected(e)} data-value={option.value} key={option.value} className={`custom-dropdown-option ${selected.value === option.value? 'selected' : ''}`}>{option.label}</li>
     })
 

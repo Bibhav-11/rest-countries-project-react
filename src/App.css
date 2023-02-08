@@ -21,8 +21,6 @@ body {
     font-family: 'Nunito Sans', sans-serif;
 }
 
-
-
 .app-container {
     --elements: hsl(209, 23%, 22%);
     --background: hsl(207, 26%, 17%);
@@ -46,17 +44,12 @@ body {
     margin: 0 auto;
 }
 
-.border {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 @media (max-width: 1300px) {
     html {
         font-size: 60%;
     }
 
-    
+
     .container {
         padding: 0 3rem;
     }
