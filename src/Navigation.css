@@ -26,14 +26,15 @@
     flex-basis: 20rem;
 }
 
-@media (max-width: 600px) {
-    .nav-heading {
-        font-size: 1.8rem;
-    }
-    
-    .color-switcher {
-        flex-basis: 15rem;
-    }
+
+
+
+
+.nav .color-switcher {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 0.2rem;
 }
 
 @media (max-width: 400px) {
@@ -43,11 +44,15 @@
     }
 }
 
-.nav .color-switcher {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    gap: 0.2rem;
+@media (max-width: 600px) {
+    .nav-heading {
+        font-size: 1.8rem;
+    }
+    
+    .color-switcher {
+        flex-basis: 15rem;
+        align-items: center;
+    }
 }
 
 .color-switcher svg {

@@ -1,6 +1,5 @@
 {
   "name": "rest-countries-react",
-  "homepage": "https://bibhav-11.github.io/rest-countries-project-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
