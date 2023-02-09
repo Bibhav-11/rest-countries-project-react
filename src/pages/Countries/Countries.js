@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import Search from './Search';
-import Dropdown from './Dropdown';
+import Search from "../../components/Search/Search";
+import Dropdown from '../../components/Dropdown/Dropdown';
 import "./Countries.css"
+import axios from 'axios';
 
 const options = [
     {
@@ -33,7 +34,7 @@ const options = [
 ]
   
 
-export default function Countries({ countries, theme }) {
+export default function Countries({ countries, theme, setCountries }) {
     const [selected, setSelected] = useState({
       label: 'Filter by Region',
       value: "null"
@@ -41,6 +42,13 @@ export default function Countries({ countries, theme }) {
     const [open, setOpen] = useState(false);
     const [searched, setSearched] = useState('');
 
+    useEffect(() => {
+      axios.get('https://restcountries.com/v3.1/all')
+      .then(response => {
+        setCountries(response.data);
+      })
+      
+    }, []);
 
 
     function hiddenCountry(country) {
