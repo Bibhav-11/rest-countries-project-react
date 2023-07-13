@@ -8,7 +8,7 @@ export default function Navigation({theme, setTheme}) {
             <div className='container nav-container'>
                 <h1 className='nav-heading'>
                     <Link to='/'>
-                        Where in the world?
+                        Where in the world???
                     </Link>
                 </h1>
                 <button onClick={() => setTheme(!theme)} className={`color-switcher ${theme ? "" : "light"}`}>
