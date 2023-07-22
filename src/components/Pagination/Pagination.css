@@ -1,0 +1,17 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    color: white;
+}
+
+.page {
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+    background: var(--elements);
+}
+
+.page.active {
+    background: white;
+    color: black;
+}

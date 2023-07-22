@@ -5,6 +5,7 @@ import Search from "../../components/Search/Search";
 import Dropdown from '../../components/Dropdown/Dropdown';
 import "./Countries.css"
 import axios from 'axios';
+import Pagination from '../../components/Pagination/Pagination';
 
 const options = [
     {
@@ -41,6 +42,9 @@ export default function Countries({ countries, theme, setCountries }) {
     });
     const [open, setOpen] = useState(false);
     const [searched, setSearched] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [countriesPerPage, setCountriesPerPage] = useState(20);
+
 
     useEffect(() => {
       axios.get('https://restcountries.com/v3.1/all')
@@ -51,16 +55,26 @@ export default function Countries({ countries, theme, setCountries }) {
     }, []);
 
 
-    function hiddenCountry(country) {
-      console.log(selected);
-      const isVisible = (country.name.common.toLowerCase().startsWith(searched.toLowerCase())) && (selected.value === "null" ? true : selected.value === country.region)
-      if(isVisible) return "";
-      else return "hidden";
-    }
+    useEffect(() => {
+      setCurrentPage(1);
+    }, [searched, selected]);
 
-    const renderedCountry = countries.map(country => {
+    // function hiddenCountry(country) {
+    //   console.log(selected);
+    //   const isVisible = (country.name.common.toLowerCase().startsWith(searched.toLowerCase())) && (selected.value === "null" ? true : selected.value === country.region)
+    //   if(isVisible) return "";
+    //   else return "hidden";
+    // }
+
+    const filteredCountries = countries.filter(c => c.name.common.toLowerCase().startsWith(searched.toLowerCase()) && (selected.value === "null" ? true : selected.value === c.region));
+
+    const indexOfLastPage = currentPage * countriesPerPage;
+    const indexOfFirstPage = indexOfLastPage - countriesPerPage;
+    const paginatedCountries = filteredCountries.slice(indexOfFirstPage, indexOfLastPage);
+
+    const renderedCountry = paginatedCountries.map(country => {
       return (
-        <div key={country.name.common} className={`country ${hiddenCountry(country)}`}>
+        <div key={country.name.common} className={`country`}>
           <Link to={`./country/${country.name.common}`}>
             <img alt={country.name.common} src={country.flags.png} className='country__flag' />
             <h2 className='country__title'>{country.name.common}</h2>
@@ -84,13 +98,10 @@ export default function Countries({ countries, theme, setCountries }) {
                 </div>
 
                 <div className='country-container'>
-
                   {renderedCountry}
-
-               
-
                 </div>
 
+                  <Pagination curr={currentPage} paginate={setCurrentPage} totalCountries={filteredCountries.length} countriesPerPage={countriesPerPage} />
             </div>
         </div>
     );
